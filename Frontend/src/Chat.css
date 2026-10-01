@@ -1,0 +1,357 @@
+.chats {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 16px;
+}
+
+.userDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.assistantDiv {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #18181b;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.bubble {
+  max-width: 78%;
+  padding: 10px 16px;
+  border-radius: 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.userDiv .bubble {
+  background: #18181b;
+  color: #fff;
+  border-bottom-right-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.assistantDiv .bubble {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-bottom-left-radius: 6px;
+}
+
+.bubble.failed {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.failedText {
+  color: #b91c1c;
+}
+
+/* markdown rendering in assistant bubbles */
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown p {
+  margin: 0 0 10px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin: 16px 0 8px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.markdown h1 {
+  font-size: 1.15rem;
+}
+
+.markdown h2 {
+  font-size: 1.05rem;
+}
+
+.markdown h3,
+.markdown h4 {
+  font-size: 0.98rem;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0 0 10px;
+  padding-left: 22px;
+}
+
+.markdown li {
+  margin-bottom: 4px;
+}
+
+.markdown li > ul,
+.markdown li > ol {
+  margin: 4px 0 0;
+}
+
+.markdown a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.markdown strong {
+  font-weight: 650;
+}
+
+.markdown blockquote {
+  margin: 0 0 10px;
+  padding: 2px 0 2px 12px;
+  border-left: 3px solid #d4d4d8;
+  color: #52525b;
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid #e4e4e7;
+  margin: 14px 0;
+}
+
+.markdown code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.85em;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.markdown pre {
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 10px;
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 0 0 10px;
+}
+
+.markdown pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #e4e4e7;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+/* gfm tables */
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid #e4e4e7;
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.markdown th {
+  background: #f4f4f5;
+  font-weight: 600;
+}
+
+.markdown img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* generated image + progress */
+
+.generatedImage {
+  margin: 10px 0 2px;
+}
+
+.generatedImage img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #e4e4e7;
+}
+
+.generatedImage figcaption {
+  margin-top: 6px;
+  font-size: 0.74rem;
+  color: #71717a;
+  line-height: 1.4;
+}
+
+.imageProgress {
+  margin-top: 8px;
+  min-width: 240px;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: #52525b;
+}
+
+.progressPercent {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.progressTrack {
+  margin-top: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e4e4e7;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  transition: width 0.25s ease-out;
+}
+
+.progressPrompt {
+  margin: 8px 0 0;
+  font-size: 0.74rem;
+  color: #71717a;
+  line-height: 1.4;
+}
+
+/* caret shown at the end of text while the reply is still streaming */
+
+.bubble.streaming .markdown > *:last-child::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: currentColor;
+  animation: caret 1s steps(2, start) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* typing indicator */
+
+.bubble.typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.bubble.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a1a1aa;
+  animation: blink 1.2s infinite ease-in-out;
+}
+
+.bubble.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bubble.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+/* empty state */
+
+.emptyState {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  color: #71717a;
+}
+
+.emptyIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.emptyState h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+  .bubble {
+    max-width: 88%;
+  }
+}

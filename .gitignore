@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+*.log
+*.err
+
+# Build output
+dist/
+build/
+coverage/
+
+# Tooling and OS files
+.DS_Store
+.vscode/
+.idea/
